@@ -1,0 +1,21 @@
+{
+  "name": "gdpr-c-o",
+  "version": "0.0.1",
+  "description": "GDPR compliant overlay tool where you can prevent unwanted loading of for example iFrames with videos or google maps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simpel-Web/gdpr-c-o.git"
+  },
+  "keywords": [
+    "GDPR",
+    "click",
+    "before",
+    "consent"
+  ],
+  "author": "Stefan Herpich",
+  "license": "ISC"
+}
