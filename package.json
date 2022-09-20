@@ -33,7 +33,7 @@
         "@typescript-eslint/parser": "4.33.0",
         "eslint": "8.23.1",
         "eslint-config-prettier": "8.5.0",
-        "eslint-plugin-prettier": "3.4.1",
+        "eslint-plugin-prettier": "4.2.1",
         "husky": "6.0.0",
         "lint-staged": "11.2.6",
         "pinst": "2.1.6",
