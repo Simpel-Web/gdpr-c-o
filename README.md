@@ -1,7 +1,7 @@
 # GDPR Compliant Overlay
 
 Library that prevents an iframe from being loaded until the user has explicitly accepted the loading. A typical use case my be the usage of Google Maps.  
-To provide a maximum of flexibility you are responsible for the design and content of the alternate overlay. 
+To provide a maximum of flexibility you are responsible for the design and content of the alternate overlay.
 
 ## Install
 
@@ -10,6 +10,7 @@ To provide a maximum of flexibility you are responsible for the design and conte
 ## Configuration
 
 1. Define a `const config:GDPRCoOvConfig`
+
     ```
     GDPRCoOvConfig:
       Properties:
@@ -17,7 +18,7 @@ To provide a maximum of flexibility you are responsible for the design and conte
         - overlayElemId: ID of the HTML element that represents the overlay
         - cookieValidInDays: number of days the cookie should be saved
         - iframeSettings: IframeSettings Object
-    
+
     IframeSettings:
       Properties:
         - width: width of iframe
@@ -25,6 +26,7 @@ To provide a maximum of flexibility you are responsible for the design and conte
         - frameBorder: border size of iframe in px
         - src: source of iframe
     ```
+
 2. Create an `const instance = new GDPRCoOv(config)`
 3. After `DOM` is loaded run `instance.init()`
 4. When user accepts and the iframe should be loaded call `instance.userAccepted(cookieEnabled)` where `cookieEnabled` tells the lib whether to save a cookie for the next `cookieValidInDays` days
@@ -37,39 +39,45 @@ Note: for the sake of simplicity the following example is based on react using t
 import { GDPRCoOv, GDPRCoOvConfig, IframeSettings } from "gdpr-c-o"
 
 const ExampleFunctionalComponent = (iframeSrc): JSX.Element => {
+    const [gdprIframeInstance, setGdprIframeInstance] = React.useState<GDPRCoOv>();
+    const [enableCookie, setEnableCookie] = React.useState(false);
+
     const overlayId = 'overlayId'
     const wrapperId = 'wrapperId'
+
+
+
+    React.useEffect(() => {
+      const iframSettings = new IframeSettings(
+        "100%",
+        "350",
+        "0",
+        iframeSrc
+      );
+
+      // gdpr-c-o config
+      const gdprConfig = new GDPRCoOvConfig(
+        wrapperId,
+        overlayId,
+        30,
+        iframSettings
+      );
+
+      const gdprCoOv = new GDPRCoOv(gdprConfig);
+      gdprCoOv.init();
+      setGdprIframeInstance(gdprCoOv);
+    }, [iframeSrc])
+
 
     // Overlay
     const Overlay = <div id={overlayId}> </div>
 
-    // gdpr-c-o config
-    const gdprConfig = new GDPRCoOvConfig(
-      wrapperId,
-      overlayId,
-      30,
-      iframSettings
-    )
-    const iframSettings = new IframeSettings(
-      "100%",
-      "350",
-      "0",
-      iframeSrc
-    )
-    const gdprCoOv = new GDPRCoOv(gdprConfig)
-
-    React.useEffect(() => {
-      gdprIframe.init()
-    }, [])
-
-    let useCookie = false;
-
-    const checkboxHandler = (e) => {
-      useCookie = e.target.checked;
+    const checkboxHandler = (event) => {
+      setEnableCookie(event.target.checked);
     }
 
     // hide overlay, show iframe and remember user setting for the future as a cookie
-    const userAccepted = () => gdprCoOv.userAccepted(useCookie)
+    const userAccepted = () => gdprIframeInstance.userAccepted(enableCookie)
 
     return (
         <div id={wrapperId}>
