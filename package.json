@@ -6,7 +6,7 @@
     "types": "lib/index.d.ts",
     "scripts": {
         "build": "tsc",
-        "lint": "eslint src/**/*.{js,ts,tsx} --quiet",
+        "lint": "eslint src/**/*.{ts,tsx} --quiet",
         "prepare": "husky install && npm run build",
         "release": "npm run lint -- --fix && standard-version",
         "postinstall": "husky install",
@@ -33,13 +33,13 @@
         "@typescript-eslint/parser": "6.13.2",
         "eslint": "8.48.0",
         "eslint-config-prettier": "8.10.0",
-        "eslint-plugin-prettier": "4.2.1",
+        "eslint-plugin-prettier": "5.0.0",
         "husky": "8.0.3",
         "lint-staged": "13.3.0",
         "pinst": "3.0.0",
         "prettier": "3.2.5",
         "standard-version": "9.5.0",
-        "typescript": "5.4.5"
+        "typescript": "5.3.3"
     },
     "husky": {
         "hooks": {
