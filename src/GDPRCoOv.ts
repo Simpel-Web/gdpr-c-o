@@ -2,7 +2,7 @@ import { GDPRCoOvConfig } from './models';
 
 export class GDPRCoOv {
     private GDPR_COOKE_KEY = 'GDPRCoOv_';
-    private isAccepted = false; 
+    private isAccepted = false;
 
     public constructor(public config: GDPRCoOvConfig) {}
 
@@ -12,6 +12,11 @@ export class GDPRCoOv {
      * @param saveCookie save a cookie to prevent future displaying of the overlay
      */
     public userAccepted(saveCookie: boolean): void {
+        if(this.isAccepted) {
+            console.warn('User has already accepted');
+            return;
+        }
+        
         if (saveCookie) {
             this.saveCookie();
         }
