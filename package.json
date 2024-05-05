@@ -1,6 +1,6 @@
 {
     "name": "gdpr-c-o",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "GDPR compliant overlay tool where you can prevent unwanted loading of iFrames with videos or google maps.",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
