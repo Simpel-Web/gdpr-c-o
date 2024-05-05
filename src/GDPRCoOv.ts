@@ -2,6 +2,7 @@ import { GDPRCoOvConfig } from './models';
 
 export class GDPRCoOv {
     private GDPR_COOKE_KEY = 'GDPRCoOv_';
+    private isAccepted = false; 
 
     public constructor(public config: GDPRCoOvConfig) {}
 
@@ -16,6 +17,7 @@ export class GDPRCoOv {
         }
 
         this.showIframe();
+        this.isAccepted = true;
     }
 
     /**
@@ -24,7 +26,16 @@ export class GDPRCoOv {
     public init(): void {
         if (this.cookieExists()) {
             this.showIframe();
+            this.isAccepted = true;
         }
+    }
+
+    /**
+     * Checks if user has already accepted.
+     * @returns state information
+     */
+    public isAlreadyAccepted(): boolean {
+        return this.isAccepted;
     }
 
     private showIframe(): void {
@@ -51,9 +62,11 @@ export class GDPRCoOv {
     private removeOverlay(): void {
         const overlay = document.getElementById(this.config.overlayElemId);
 
-        if (overlay) {
-            overlay.remove();
+        if (!overlay) {
+            throw new Error(`Overlay element #${this.config.overlayElemId} does not exist.`);
         }
+
+        overlay.remove();
     }
 
     private getWrapper(): HTMLElement {
