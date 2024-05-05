@@ -27,8 +27,8 @@
     "author": "Stefan Herpich & Robert Krause",
     "license": "ISC",
     "devDependencies": {
-        "@commitlint/cli": "17.1.2",
-        "@commitlint/config-conventional": "17.1.0",
+        "@commitlint/cli": "19.3.0",
+        "@commitlint/config-conventional": "19.2.2",
         "@typescript-eslint/eslint-plugin": "5.38.0",
         "@typescript-eslint/parser": "5.38.0",
         "eslint": "8.57.0",
