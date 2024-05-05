@@ -51,11 +51,9 @@ export class GDPRCoOv {
     private removeOverlay(): void {
         const overlay = document.getElementById(this.config.overlayElemId);
 
-        if (!overlay) {
-            throw new Error(`Overlay element #${this.config.overlayElemId} does not exist.`);
+        if (overlay) {
+            overlay.remove();
         }
-
-        overlay.remove();
     }
 
     private getWrapper(): HTMLElement {
