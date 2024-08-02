@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/Simpel-Web/gdpr-c-o/compare/v0.0.4...v0.0.5) (2024-08-02)
+
+
+### Features
+
+* provide id for iframe ([1a7f465](https://github.com/Simpel-Web/gdpr-c-o/commit/1a7f46539e153934e7a18fb1596b8bddbe3a0cd6))
+
 ### [0.0.4](https://github.com/Simpel-Web/gdpr-c-o/compare/v0.0.3...v0.0.4) (2024-05-05)
 
 
