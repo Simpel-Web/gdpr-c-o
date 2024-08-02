@@ -8,5 +8,11 @@ export class GDPRCoOvConfig {
 }
 
 export class IframeSettings {
-    public constructor(public width: string, public height: string, public frameBorder: string, public src: string) {}
+    public constructor(
+        public width: string,
+        public height: string,
+        public frameBorder: string,
+        public src: string,
+        public id?: string,
+    ) {}
 }

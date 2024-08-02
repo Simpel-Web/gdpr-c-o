@@ -12,11 +12,11 @@ export class GDPRCoOv {
      * @param saveCookie save a cookie to prevent future displaying of the overlay
      */
     public userAccepted(saveCookie: boolean): void {
-        if(this.isAccepted) {
+        if (this.isAccepted) {
             console.warn('User has already accepted');
             return;
         }
-        
+
         if (saveCookie) {
             this.saveCookie();
         }
@@ -56,6 +56,7 @@ export class GDPRCoOv {
         iframe.setAttribute('height', this.config.iframeSettings.height);
         iframe.setAttribute('frameBorder', this.config.iframeSettings.frameBorder);
         iframe.setAttribute('src', this.config.iframeSettings.src);
+        iframe.setAttribute('id', this.config.iframeSettings.id ?? `i-frame-${this.config.wrapperElemId}`);
 
         // show iframe in DOM
         this.getWrapper().appendChild(iframe);
