@@ -38,7 +38,7 @@
         "eslint-plugin-react": "7.32.2",
         "globals": "^15.1.0",
         "husky": "8.0.3",
-        "lint-staged": "13.3.0",
+        "lint-staged": "15.2.10",
         "pinst": "3.0.0",
         "prettier": "^3.2.5",
         "standard-version": "9.5.0",
